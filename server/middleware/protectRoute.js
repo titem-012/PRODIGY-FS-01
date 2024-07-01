@@ -5,7 +5,7 @@ const protectRoute = (req,res,next) => {
     if(!token){
         res.status(400).json("Login again")
     }
-    const decodeTheTokken = jwt.verify(token,"XembLm3C08F6NZIWXOV/c/6HHuSq17AvhHDd19as16g");
+    const decodeTheTokken = jwt.verify(token,process.env.SECRET);
 
     if(decodeTheTokken){
         next();
